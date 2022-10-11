@@ -6,7 +6,7 @@ import NavBar from "./NavBar";
 import "./styles/home.sass";
 
 function Home() {
-  const [allCharacters, setAllCharacters] = useState([]);
+  const [allCharacters, setAllCharacters] = useState(null);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   useEffect(() => {
@@ -15,7 +15,7 @@ function Home() {
     model.fetch({
       url: `https://rickandmortyapi.com/api/character/?page=${page}`,
       success: function () {
-        allCharacters !== []
+        allCharacters !== null
           ? setAllCharacters([...allCharacters, ...model.attributes.results])
           : setAllCharacters(model.attributes.results);
 
@@ -25,7 +25,7 @@ function Home() {
   }, [page]);
 
   return (
-    allCharacters !== [] && (
+    allCharacters && (
       <>
         <NavBar />
         <InfiniteScroll
@@ -34,9 +34,12 @@ function Home() {
           hasMore={hasMore}
           loader={<h4>Loading...</h4>}
         >
-          {allCharacters.map((character) => {
-            return <CharacterCard key={character.id} character={character} />;
-          })}
+          <div className="container">
+            {" "}
+            {allCharacters.map((character) => {
+              return <CharacterCard key={character.id} character={character} />;
+            })}
+          </div>
         </InfiniteScroll>
       </>
     )

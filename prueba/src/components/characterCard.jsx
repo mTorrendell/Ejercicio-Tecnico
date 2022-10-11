@@ -1,13 +1,12 @@
-function CharacterCard({ character }) {
+import "./styles/characterCard.sass"
 
+function CharacterCard({ character }) {
+  console.log(character);
   return (
     <>
-      <div>{character.id}</div>
-      <div>{character.id}</div>
-      <div>{character.id}</div>
-      <div>{character.id}</div>
-      <div>{character.id}</div>
-      <div>{character.id}</div>
+      <div className="characterCard">
+        <img src={character.image} />
+      </div>
     </>
   );
 }
