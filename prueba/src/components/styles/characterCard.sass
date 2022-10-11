@@ -1,14 +1,33 @@
-$breakpoint-tablet: 768px
+@use 'home'
+$breakpoint: 768px
+
+.flex
+   display: flex
+   flex-wrap: wrap
 
 .characterCard
-   margin: 20px
-   color: #00b6d5
+   @include home.neonBorders
+   align-items: center
+   justify-content: space-evenly
 
-div
-   font-size: 6.2rem
-   animation: pulsate 1.5s infinite alternate
-   border: 0.2rem solid #00b6d5
-   border-radius: 2rem
-   padding: 0.4em
-   box-shadow: 0 0 .2rem #00b6d5
-   box-shadow: inset 0 0 1.3rem #00d96b
+.characterCard:hover
+   background-color: #033330
+   cursor: pointer
+
+.imageCharacter
+   max-width: 100%
+   max-height: 100%
+   object-fit: cover
+   border-radius: 5%
+
+.name
+   color: white
+   font-size: 5vmin
+
+.sectionInfo
+   width: fit-content
+   margin: 4%
+
+@media (min-width: $breakpoint)
+   div
+      @include home.neonBorders

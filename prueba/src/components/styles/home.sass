@@ -1,7 +1,21 @@
-$breakpoint-tablet: 768px
+// Global variable 
+@mixin neonBorders
+   font-size: 6.2rem
+   animation: pulsate 1.5s infinite alternate
+   border: 0.2rem solid #00b6d5
+   border-radius: 2rem
+   padding: 0.4em
+   box-shadow: 0 0 .2rem #00b6d5
+   box-shadow: inset 0 0 1.3rem #00d96b
+   
+$breakpoint: 768px
 
 .container
    margin: 4%
 
 body
    background-color: black
+
+@media (max-width: $breakpoint)
+   .container
+      @include neonBorders

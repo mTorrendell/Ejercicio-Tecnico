@@ -1,4 +1,4 @@
-import { Router, history, Backbone } from "backbone";
+import { Router, history } from "backbone";
 import Home from "./components/Home.jsx";
 import Character from "./components/InfoCharacter";
 //import { useState, useEffect } from "react";

@@ -1,3 +1,22 @@
-.characterCard
-   background-color: white
+@use 'home'
+$breakpoint: 768px
+
+.nameCharacter
+   color: white
+   font-family: "Courier New", Copperplate
+   font-weight: none
+   font-size: 5vmin
+
+.goBack
    margin: 20px
+   display: inline-block
+   border-radius: 10px
+   padding: 10px
+   font-family: "Courier New", Copperplate
+
+.goBack:hover
+   background-color: #033330
+   cursor: pointer
+
+.infoIndividual
+   @include home.neonBorders

@@ -34,7 +34,7 @@ function Home() {
           hasMore={hasMore}
           loader={<h4>Loading...</h4>}
         >
-          <div className="container">
+          <div className="container generalDiv">
             {" "}
             {allCharacters.map((character) => {
               return <CharacterCard key={character.id} character={character} />;
