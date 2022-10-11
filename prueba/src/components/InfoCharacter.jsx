@@ -1,3 +1,5 @@
-function infoCharacter() {}
+function InfoCharacter({ characterId }) {
+  return <div>Id of character: {characterId}</div>;
+}
 
-export default infoCharacter();
+export default InfoCharacter;
