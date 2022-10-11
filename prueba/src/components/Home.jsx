@@ -1,7 +1,7 @@
 function Home() {
   return (
     <>
-      <div>MIMI</div>
+      <div>List Characters</div>
     </>
   );
 }

@@ -1,5 +1,4 @@
-import { Router } from "backbone";
-import { history } from "backbone";
+import { Router, history } from "backbone";
 import Home from "./components/Home.jsx";
 import Character from "./components/InfoCharacter";
 
