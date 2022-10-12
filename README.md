@@ -5,6 +5,8 @@
 ### Sass
 ### Backbone
 ### React
+
+### Bootstrap
+### Infinite scroll 
 ### Loadash
 ### Scroll to top
-### Bootstrap
