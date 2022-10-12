@@ -191,7 +191,7 @@ function Home() {
           dataLength={allCharacters.length}
           next={() => setPage((prevPage) => prevPage + 1)}
           hasMore={hasMore}
-          loader={<h4 className="text-white">Loading...</h4>}
+          loader={<h2 className="text-white">Loading...</h2>}
         >
           <div className="containers generalDiv">
             {" "}

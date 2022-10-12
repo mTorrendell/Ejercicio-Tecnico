@@ -13,10 +13,22 @@
    text-shadow: 0 0 15px #20945ab6, 0 0 20px #29cc7b87, 0 0 25px #141515, 0 0 30px #00d96b
 
 $breakpoint: 768px
+.line
+   background-color: #155a37b9
+   width: 100%
+   align-items: center
+   animation: expand .9s ease-in-out
+
+@keyframes expand
+   from
+      transform: scaleX(0)
+
+   to
+      transform: scaleY(1)
 
 .styleButtons:hover
    background-color: #00d96d4b
-   
+
 .nameCharacter
    font-size: 8vmin
    @include newNeonText

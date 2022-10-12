@@ -10,6 +10,7 @@ function InfoCharacter({ characterId }) {
   const [showLocation, setShowLocation] = useState(false);
   const [showEpisodes, setShowEpisodes] = useState(false);
   const [nameEpisodes, setNameEpisodes] = useState(null);
+  const [activeLine, setActiveLine] = useState(true);
 
   useEffect(() => {
     const model = new Backbone.Model();
@@ -59,10 +60,21 @@ function InfoCharacter({ characterId }) {
           />
         </section>
         <section>
-          <section className="d-flex justify-content-between">
+          <section className="d-flex justify-content-between align-items-center">
             {" "}
-            <div className="styleButtons"></div>
-            <div className="styleButtons"></div>
+            <div
+              className="styleButtons m-2"
+              onClick={() => {
+                activeLine ? setActiveLine(false) : setActiveLine(true);
+              }}
+            ></div>
+            {activeLine && <hr className="line" />}
+            <div
+              className="styleButtons m-2"
+              onClick={() => {
+                activeLine ? setActiveLine(false) : setActiveLine(true);
+              }}
+            ></div>
           </section>
           <section className="mt-4 infoIndividual d-lg-flex d-block	justify-content-around">
             <section>
