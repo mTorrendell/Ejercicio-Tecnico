@@ -8,21 +8,24 @@ function CharacterCard({ character }) {
       <div
         className="characterCard flex"
         onClick={() => {
-          history.navigate(`character/${character.id}`, {
-            trigger: true,
-          });
+          history.navigate(
+            `character/${character.id}/${character.name.replace(" ", "-")}`,
+            {
+              trigger: true,
+            }
+          );
         }}
       >
-        <section className="sectionInfo">
+        <section className="sectionInfo image">
           {" "}
           <img className="imageCharacter" src={character.image} />{" "}
         </section>
         <section className="sectionInfo">
           {" "}
-          <h6 className="name">{character.name}</h6>
+          <h6 id="nameCharacter">{character.name.toUpperCase()}</h6>
           <section className="flex">
-            <h6 className="name">{character.gender}</h6>
-            <h6 className="name">{character.species}</h6>
+            <h6 className="subInfo">{character.gender}</h6>
+            <h6 className="subInfo">{character.species}</h6>
           </section>
         </section>
       </div>

@@ -1,4 +1,3 @@
-// Global variable 
 @mixin neonBorders
    font-size: 6.2rem
    animation: pulsate 1.5s infinite alternate
@@ -7,15 +6,32 @@
    padding: 0.4em
    box-shadow: 0 0 .2rem #00b6d5
    box-shadow: inset 0 0 1.3rem #00d96b
-   
+
 $breakpoint: 768px
 
-.container
+*
+   font-family: 'Courier New', monospace, Rockwell
+   font-weight: lighter
+
+.buttonFilter
+   color: black
+   padding: 10%
+   align-items: center
+
+.buttonFilter:hover
+   cursor: pointer
+
+.fit-content
+   font-size: 5vmin
+   margin: 20px
+   align-items: center
+
+.buttonFilter
+   color: white
+
+.containers
    margin: 4%
 
-body
-   background-color: black
-
 @media (max-width: $breakpoint)
-   .container
+   .containers
       @include neonBorders

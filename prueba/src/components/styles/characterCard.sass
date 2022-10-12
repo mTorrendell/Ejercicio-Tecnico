@@ -5,14 +5,23 @@ $breakpoint: 768px
    display: flex
    flex-wrap: wrap
 
+.filters
+   display: inline-block
+   
 .characterCard
    @include home.neonBorders
    align-items: center
    justify-content: space-evenly
 
 .characterCard:hover
-   background-color: #033330
+   background-color: black
+   opacity: 0.8
    cursor: pointer
+
+.image
+   width: 100%
+   height: 100%
+   margin-top: 0px
 
 .imageCharacter
    max-width: 100%
@@ -20,7 +29,11 @@ $breakpoint: 768px
    object-fit: cover
    border-radius: 5%
 
-.name
+#nameCharacter
+   color: #fff !important
+   text-shadow: 0 0 50px #fff !important
+
+.subInfo
    color: white
    font-size: 5vmin
 

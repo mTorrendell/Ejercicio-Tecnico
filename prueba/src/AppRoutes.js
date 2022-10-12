@@ -9,14 +9,14 @@ function Routes(root) {
       Router.extend({
          routes: {
             "": "home",
-            "character/:id": "character",
+            "character/:id/:slug": "character",
          },
          home: () => root.render(<Home />),
-         character: id => root.render(<Character characterId={id} />),
+         character: (id, slug) => root.render(<Character characterId={id} characterName={slug} />),
       });
 
-   new AppRouter();
-   history.start({ pushState: true });
+new AppRouter();
+history.start({ pushState: true });
 }
 
 export default Routes;
