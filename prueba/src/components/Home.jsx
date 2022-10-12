@@ -202,7 +202,7 @@ function Home() {
                 );
               })
             ) : (
-              <div>ESTA MAL</div>
+              <div>No characters found</div>
             )}
           </div>
         </InfiniteScroll>

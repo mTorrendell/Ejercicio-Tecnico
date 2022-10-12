@@ -40,7 +40,7 @@ function InfoCharacter({ characterId }) {
   return character ? (
     <>
       <img className="backGroundImg" src={backGroundGif}></img>
-      <div className="infoIndividual">
+      <div className="infoIndividual container">
         <section
           className="d-flex align-items-start"
           onClick={() => {
@@ -59,7 +59,7 @@ function InfoCharacter({ characterId }) {
             src={character.image}
           />
         </section>
-        <section>
+        <section className="bigCont">
           <section className="d-flex justify-content-between align-items-center">
             {" "}
             <div
@@ -76,7 +76,7 @@ function InfoCharacter({ characterId }) {
               }}
             ></div>
           </section>
-          <section className="mt-4 infoIndividual d-lg-flex d-block	justify-content-around">
+          <div className="mt-4 d-lg-flex d-block	justify-content-around">
             <section>
               <h2 className="infoCharacter">CHARACTER: {character.id}</h2>
               <h2 className="infoCharacter">
@@ -98,7 +98,7 @@ function InfoCharacter({ characterId }) {
             <section>
               <section className="mt-4">
                 <h2
-                  className="infoCharacterButton"
+                  className="infoCharacterButton d-flex justify-content-sm-start justify-content-center"
                   onClick={() => {
                     showOrigin ? setShowOrigin(false) : setShowOrigin(true);
                   }}
@@ -113,7 +113,7 @@ function InfoCharacter({ characterId }) {
               </section>
               <section className="mt-4">
                 <h2
-                  className="infoCharacterButton"
+                  className="infoCharacterButton  d-flex justify-content-sm-start justify-content-center"
                   onClick={() => {
                     showLocation
                       ? setShowLocation(false)
@@ -132,7 +132,7 @@ function InfoCharacter({ characterId }) {
               </section>
               <section className="mt-4">
                 <h2
-                  className="infoCharacterButton"
+                  className="infoCharacterButton d-flex justify-content-sm-start justify-content-center"
                   onClick={() => {
                     showEpisodes
                       ? setShowEpisodes(false)
@@ -148,7 +148,7 @@ function InfoCharacter({ characterId }) {
                         return (
                           <section key={index}>
                             {" "}
-                            <h2 className="infoButton m-2">{epi}</h2>
+                            <h2 className="infoButton">{epi}</h2>
                           </section>
                         );
                       })
@@ -159,7 +159,7 @@ function InfoCharacter({ characterId }) {
                 )}
               </section>
             </section>
-          </section>
+          </div>
         </section>
       </div>
     </>

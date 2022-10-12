@@ -1,10 +1,8 @@
 import { Router, history } from "backbone";
 import Home from "./components/Home.jsx";
 import Character from "./components/InfoCharacter";
-//import { useState, useEffect } from "react";
 
 function Routes(root) {
-   //Routes using the router from backbone
    const AppRouter =
       Router.extend({
          routes: {
@@ -15,8 +13,8 @@ function Routes(root) {
          character: (id, slug) => root.render(<Character characterId={id} characterName={slug} />),
       });
 
-new AppRouter();
-history.start({ pushState: true });
+   new AppRouter();
+   history.start({ pushState: true });
 }
 
 export default Routes;

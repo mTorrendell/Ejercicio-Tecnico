@@ -2,7 +2,6 @@ import "./styles/characterCard.sass";
 import { history } from "backbone";
 
 function CharacterCard({ character }) {
-  //console.log(character);
   return (
     <div
       className="characterCard m-4 d-flex align-items-center justify-content-space-evenly"
