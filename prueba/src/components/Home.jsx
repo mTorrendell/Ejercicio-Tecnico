@@ -9,8 +9,10 @@ import "./styles/home.sass";
 
 function Home() {
   const [allCharacters, setAllCharacters] = useState(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
+  const [genreFilter, setGenreFilter] = useState(false);
+  const [statusFilter, setStatusFilter] = useState(false);
   const [filterBy, setFilterBy] = useState(null);
   const [categoryFIlter, setCategoryFilter] = useState(null);
 
@@ -18,7 +20,7 @@ function Home() {
   useEffect(() => {
     const model = new Backbone.Model();
     model.fetch({
-      url: `https://rickandmortyapi.com/api/character/?page=${page}`,
+      url: `https://rickandmortyapi.com/api/character/?page=${page + 1}`,
       success: function () {
         allCharacters !== null
           ? setAllCharacters([...allCharacters, ...model.attributes.results])
@@ -31,7 +33,6 @@ function Home() {
 
   //Filters
   useEffect(() => {
-    console.log({ categoryFIlter });
     if (categoryFIlter) {
       if (categoryFIlter === "name") {
         const nuevo = _.sortBy(allCharacters, [
@@ -39,57 +40,83 @@ function Home() {
             return one.name;
           },
         ]);
-        setAllCharacters(nuevo);
+        console.log(nuevo);
+        setAllCharacters([...nuevo]);
       } else {
         console.log({ filterBy });
         const newCharacters = allCharacters.filter((character) => {
           return (character.categoryFIlter = filterBy);
         });
-        console.log(newCharacters);
         setAllCharacters(newCharacters);
       }
     }
-  }, [categoryFIlter]);
+  }, [categoryFIlter, page]);
 
   return (
     allCharacters && (
       <>
         <NavBar />
-        {/* <p className="name">FILTER BY</p> */}
-        <section className="fit-content d-flex justify-content-around">
+        {/* <h5 className="color-white">Filter By</h5> */}
+        <section className="fit-content d-flex flex-sm-row flex-column justify-content-around align-items-sm-start">
           {" "}
           <section className="filters">
-            <lable
+            <h1
               className="buttonFilter"
               onClick={() => {
                 setCategoryFilter("name");
               }}
             >
-              Name
-            </lable>
-            <ul className=""></ul>
+              NAME
+            </h1>
           </section>
           <section className="filters">
             {" "}
-            <lable
+            <h1
               className="buttonFilter"
               onClick={() => {
                 setCategoryFilter("status");
+                if (statusFilter) {
+                  setStatusFilter(false);
+                } else {
+                  setStatusFilter(true);
+                }
               }}
             >
-              Status
-            </lable>
+              STATUS
+            </h1>
+            {statusFilter && (
+              <div className="listItems">
+                {" "}
+                <h2 className="listItem buttonFilter">Alive</h2>
+                <h2 className="listItem buttonFilter">Dead</h2>
+                <h2 className="listItem buttonFilter">Unknown</h2>
+              </div>
+            )}
           </section>
           <section className="filters">
             {" "}
-            <lable
+            <h1
               className="buttonFilter"
               onClick={() => {
                 setCategoryFilter("genre");
+                if (genreFilter) {
+                  setGenreFilter(false);
+                } else {
+                  setGenreFilter(true);
+                }
               }}
             >
-              Genre
-            </lable>
+              GENRE
+            </h1>
+            {genreFilter && (
+              <div className="listItems">
+                {" "}
+                <h2 className="listItem buttonFilter">Female</h2>
+                <h2 className="listItem buttonFilter">Male</h2>
+                <h2 className="listItem buttonFilter">Genderless</h2>
+                <h2 className="listItem buttonFilter">Unknown</h2>
+              </div>
+            )}
           </section>
         </section>
 

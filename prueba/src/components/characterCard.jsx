@@ -2,11 +2,11 @@ import "./styles/characterCard.sass";
 import { history } from "backbone";
 
 function CharacterCard({ character }) {
-  console.log(character);
+ // console.log(character);
   return (
     <>
       <div
-        className="characterCard flex"
+        className="characterCard m-4 d-flex"
         onClick={() => {
           history.navigate(
             `character/${character.id}/${character.name.replace(" ", "-")}`,
