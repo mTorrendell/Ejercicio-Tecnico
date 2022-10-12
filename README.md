@@ -1,6 +1,6 @@
 # brokenRubikPruebaTecnica
 
-##Technologias y librerias usadas
+## Technologias y librerias usadas
 
 ### Sass
 ### Backbone
