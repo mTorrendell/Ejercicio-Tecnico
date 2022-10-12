@@ -9,6 +9,7 @@ function InfoCharacter({ characterId }) {
   const [showOrigin, setShowOrigin] = useState(false);
   const [showLocation, setShowLocation] = useState(false);
   const [showEpisodes, setShowEpisodes] = useState(false);
+  const [nameEpisodes, setNameEpisodes] = useState(null);
 
   useEffect(() => {
     const model = new Backbone.Model();
@@ -16,18 +17,23 @@ function InfoCharacter({ characterId }) {
       url: `https://rickandmortyapi.com/api/character/${characterId}`,
       success: function () {
         setCharacter(model.attributes);
+        callEpisodeName(model.attributes.episode);
       },
     });
   }, []);
 
-  function buttonInfo(listOfData) {
-    return (
-      <div>
-        {listOfData.map((fact) => {
-          return <div>{fact}</div>;
-        })}
-      </div>
-    );
+  function callEpisodeName(listEpisodes) {
+    const list = [];
+    const model = new Backbone.Model();
+    for (const episode of listEpisodes) {
+      model.fetch({
+        url: episode,
+        success: function () {
+          list.push(model.attributes.name);
+        },
+      });
+    }
+    setNameEpisodes(list);
   }
 
   return character ? (
@@ -58,7 +64,7 @@ function InfoCharacter({ characterId }) {
             <div className="styleButtons"></div>
             <div className="styleButtons"></div>
           </section>
-          <section className="mt-4 infoIndividual d-md-flex d-block	justify-content-around">
+          <section className="mt-4 infoIndividual d-lg-flex d-block	justify-content-around">
             <section>
               <h2 className="infoCharacter">CHARACTER: {character.id}</h2>
               <h2 className="infoCharacter">
@@ -125,7 +131,18 @@ function InfoCharacter({ characterId }) {
                 </h2>
                 {showEpisodes && (
                   <section className="infoCharacter">
-                    <p className="infoButton">H</p>
+                    {nameEpisodes ? (
+                      nameEpisodes.map((epi, index) => {
+                        return (
+                          <section key={index}>
+                            {" "}
+                            <h2 className="infoButton m-2">{epi}</h2>
+                          </section>
+                        );
+                      })
+                    ) : (
+                      <p>loading...</p>
+                    )}
                   </section>
                 )}
               </section>
