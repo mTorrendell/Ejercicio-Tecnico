@@ -1,9 +1,25 @@
 @use 'home'
+@mixin newNeonBorder
+   color: white
+   font-size: 4vmin
+   margin: 50px
+   padding: 60px
+   box-shadow: 0 0 .2rem #00b6d5
+   box-shadow: inset 0 0 1.3rem #00d96b
+   border-radius: 20px
+
+@mixin newNeonText
+   color: #fff
+   text-shadow: 0 0 15px #20945ab6, 0 0 20px #29cc7b87, 0 0 25px #141515, 0 0 30px #00d96b
+
 $breakpoint: 768px
 
+.styleButtons:hover
+   background-color: #00d96d4b
+   
 .nameCharacter
    font-size: 8vmin
-   @include home.neonText
+   @include newNeonText
 
 .imageIndividualCharacter
    margin-bottom: 50px
@@ -13,14 +29,42 @@ $breakpoint: 768px
 .imageIndividualCharacter:hover
    transform: scale(1.1)
 
+.infoCharacter
+   font-size: 4vmin
+   margin: 50px
+   padding: 20px
+   @include newNeonText
+
+.infoCharacterButton
+   @include newNeonText
+   @include newNeonBorder
+
+.infoCharacterButton:hover
+   cursor: pointer
+   background-color: #00d96d26
+
 .infoButton
    color: white
+   font-size: 4vmin
    position: relative
    opacity: 2
+   padding: 4vmin
    animation: move-text 0.75s forwards
 
 @keyframes move-text
-   opacity: 1
+   0%
+      bottom: -0.2em
+      opacity: 1
+      color: #536b80
+
+   50%
+      bottom: 0.2em
+      color: #819582
+
+   100%
+      bottom: 0
+      opacity: 1
+      color: #28965f97
 
 .goBack
    margin: 20px
@@ -30,7 +74,7 @@ $breakpoint: 768px
    color: white
 
 .goBack:hover
-   @include home.neonText
+   @include newNeonText
    cursor: pointer
 
 .infoIndividual
