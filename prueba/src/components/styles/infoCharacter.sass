@@ -2,20 +2,35 @@
 $breakpoint: 768px
 
 .nameCharacter
+   font-size: 8vmin
+   @include home.neonText
+
+.imageIndividualCharacter
+   margin-bottom: 50px
+   border-radius: 50%
+   transition: transform .2s
+
+.imageIndividualCharacter:hover
+   transform: scale(1.1)
+
+.infoButton
    color: white
-   font-family: "Courier New", Copperplate
-   font-weight: none
-   font-size: 5vmin
+   position: relative
+   opacity: 2
+   animation: move-text 0.75s forwards
+
+@keyframes move-text
+   opacity: 1
 
 .goBack
    margin: 20px
    display: inline-block
    border-radius: 10px
    padding: 10px
-   font-family: "Courier New", Copperplate
+   color: white
 
 .goBack:hover
-   background-color: #033330
+   @include home.neonText
    cursor: pointer
 
 .infoIndividual

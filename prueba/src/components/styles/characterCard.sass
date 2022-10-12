@@ -1,17 +1,8 @@
 @use 'home'
 $breakpoint: 768px
 
-.flex
-   display: flex
-   flex-wrap: wrap
-
-.filters
-   display: inline-block
-
 .characterCard
    @include home.neonBorders
-   align-items: center
-   justify-content: space-evenly
 
 .characterCard:hover
    background-color: black
@@ -21,25 +12,24 @@ $breakpoint: 768px
 .image
    width: 400px !important
    height: 400px
-   margin-top: 0px
 
 .imageCharacter
-   max-width: 100%
-   max-height: 100%
-   object-fit: cover
+   object-fit: container
    border-radius: 5%
+   @include home.imagesSize
 
 #nameCharacter
    font-size: 6vmin
-   color: #fff !important
-   text-shadow: 0 0 50px #fff !important
+   @include home.neonText
 
 .subInfo
    color: white
    font-size: 3vmin
+   padding: 2%
 
 .sectionInfo
    width: fit-content
+   align-items: center !important
    margin: 4%
 
 @media (min-width: $breakpoint)
