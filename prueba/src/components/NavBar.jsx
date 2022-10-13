@@ -6,9 +6,13 @@ function NavBar() {
   return (
     <>
       <div className="nav d-flex justify-content-center">
-        <img className="navbarImg" src={navNarGif} alt="loading..." />
+        <img
+          className="navbarImg imageIndividualCharacter"
+          src={navNarGif}
+          alt="loading..."
+        />
       </div>{" "}
-      <img className="backGroundImg" src={backGroundGif}></img>
+      <img className="backGroundImg" src={backGroundGif} alt="loading..." />
     </>
   );
 }

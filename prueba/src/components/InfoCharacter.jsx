@@ -1,15 +1,20 @@
-import "./styles/infoCharacter.sass";
 import { history } from "backbone";
-import backGroundGif from "./img/backGround.gif";
-import { useEffect, useState } from "react";
 import Backbone from "backbone";
+import { useEffect, useState } from "react";
+import backGroundGif from "./img/backGround.gif";
+import "./styles/infoCharacter.sass";
 
 function InfoCharacter({ characterId }) {
   const [character, setCharacter] = useState("");
+
+  //States for the buttons
   const [showOrigin, setShowOrigin] = useState(false);
   const [showLocation, setShowLocation] = useState(false);
+
   const [showEpisodes, setShowEpisodes] = useState(false);
   const [nameEpisodes, setNameEpisodes] = useState(null);
+
+  //State for aesthetic purpouse
   const [activeLine, setActiveLine] = useState(true);
 
   useEffect(() => {
@@ -18,12 +23,13 @@ function InfoCharacter({ characterId }) {
       url: `https://rickandmortyapi.com/api/character/${characterId}`,
       success: function () {
         setCharacter(model.attributes);
-        callEpisodeName(model.attributes.episode);
+        callEpisodesName(model.attributes.episode);
       },
     });
   }, []);
 
-  function callEpisodeName(listEpisodes) {
+  //Function to call all episodes of character
+  function callEpisodesName(listEpisodes) {
     const list = [];
     const model = new Backbone.Model();
     for (const episode of listEpisodes) {
@@ -39,7 +45,7 @@ function InfoCharacter({ characterId }) {
 
   return character ? (
     <>
-      <img className="backGroundImg" src={backGroundGif}></img>
+      <img className="backGroundImg" src={backGroundGif} alt="loading..." />
       <div className="infoIndividual container">
         <section
           className="d-flex align-items-start"
@@ -57,9 +63,10 @@ function InfoCharacter({ characterId }) {
           <img
             className="imageIndividualCharacter d-sm-inline d-none"
             src={character.image}
+            alt="loading..." 
           />
         </section>
-        <section className="bigCont">
+        <section className="m-3">
           <section className="d-flex justify-content-between align-items-center">
             {" "}
             <div
@@ -91,7 +98,7 @@ function InfoCharacter({ characterId }) {
                 TYPE: {character.type ? character.type : "No recorded type"}
               </h2>
               <h2 className="infoCharacter">
-                GENDER{" "}
+                GENDER:{" "}
                 {character.gender ? character.gender : "No recorded gender"}
               </h2>
             </section>
@@ -107,7 +114,7 @@ function InfoCharacter({ characterId }) {
                 </h2>
                 {showOrigin && (
                   <section className="infoCharacter">
-                    <p className="infoButton">Name: {character.origin.name} </p>
+                    <p className="infoButton">{character.origin.name} </p>
                   </section>
                 )}
               </section>
@@ -124,9 +131,7 @@ function InfoCharacter({ characterId }) {
                 </h2>
                 {showLocation && (
                   <section className="infoCharacter">
-                    <p className="infoButton">
-                      Name: {character.location.name}
-                    </p>
+                    <p className="infoButton">{character.location.name}</p>
                   </section>
                 )}
               </section>

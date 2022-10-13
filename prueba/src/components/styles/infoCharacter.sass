@@ -13,13 +13,15 @@
    text-shadow: 0 0 15px #20945ab6, 0 0 20px #29cc7b87, 0 0 25px #141515, 0 0 30px #00d96b
 
 $breakpoint: 768px
+
 .line
    background-color: #155a37b9
    width: 100%
+   padding: 0.6px
    align-items: center
-   animation: expand .9s ease-in-out
+   animation: lineMoving .9s ease-in-out
 
-@keyframes expand
+@keyframes lineMoving
    from
       transform: scaleX(0)
 
@@ -28,6 +30,7 @@ $breakpoint: 768px
 
 .styleButtons:hover
    background-color: #00d96d4b
+   cursor: ew-resize
 
 .nameCharacter
    font-size: 8vmin
@@ -40,9 +43,7 @@ $breakpoint: 768px
 
 .imageIndividualCharacter:hover
    transform: scale(1.1)
-
-.bigCont
-   margin: 20px
+   cursor: none
 
 .infoCharacter
    font-size: 4vmin
@@ -63,18 +64,19 @@ $breakpoint: 768px
    font-size: 4vmin
    position: relative
    opacity: 2
-   padding: 4vmin
-   animation: move-text 0.75s forwards
+   padding: 3vmin
+   animation: animate-text 0.75s forwards
 
-@keyframes move-text
+// In order to intercept a specific property  
+@keyframes animate-text
    0%
       bottom: -0.2em
       opacity: 1
-      color: #536b80
+      color: #197e0e97
 
    50%
-      bottom: 0.2em
-      color: #819582
+      bottom: 0.3em
+      color: #f8faf8c6
 
    100%
       bottom: 0

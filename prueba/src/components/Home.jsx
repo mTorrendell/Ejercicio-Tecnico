@@ -21,7 +21,7 @@ function Home() {
   //The primary filter
   const [categoryFilter, setCategoryFilter] = useState(null);
 
-  //Auxiliar function
+  //Auxiliar function to filter characters
   function filter(characters) {
     if (categoryFilter) {
       if (categoryFilter === "name") {
@@ -164,15 +164,6 @@ function Home() {
                 >
                   Male
                 </h2>
-                {/* <h2
-                  className="listItem buttonFilter"
-                  onClick={() => {
-                    setFilterBy("Genderless");
-                    setCategoryFilter("gender");
-                  }}
-                >
-                  Genderless
-                </h2> */}
                 <h2
                   className="listItem buttonFilter"
                   onClick={() => {

@@ -19,6 +19,7 @@ function CharacterCard({ character }) {
         <img
           className="imageCharacter d-sm-inline d-none"
           src={character.image}
+          alt="loading..." 
         />{" "}
       </section>
       <section className="sectionInfo">

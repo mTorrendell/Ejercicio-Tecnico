@@ -5,7 +5,7 @@ function AbsoluteIcons() {
   return (
     <>
       <div>
-        <ScrollToTop smooth top={200} className="goUp scroll-to-top" />
+        <ScrollToTop smooth top={200} />
       </div>
     </>
   );
