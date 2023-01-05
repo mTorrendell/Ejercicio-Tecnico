@@ -1,4 +1,4 @@
-# brokenRubikPruebaTecnica
+# Ejercicio
 
 ## Technologias y librerias usadas
 
